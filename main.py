@@ -26,7 +26,7 @@ app.add_middleware(
 )
 
 # Instantiate the model
-model = SimpleMNISTClassifier()
+model = SimpleMNISTClassifier(force_gpu=True)
 
 ### --- ROUTES --- ###
 @app.get("/")
