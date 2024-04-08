@@ -9,13 +9,13 @@ from datetime import datetime
 from src.utils import set_device
 
 class SimpleMNISTClassifier:
-    def __init__(self, input_size=784, hidden_size=512, output_size=10, learning_rate=0.01):
+    def __init__(self, input_size=784, hidden_size=512, output_size=10, learning_rate=0.01, force_gpu=False):
         self.model = nn.Sequential(
             nn.Linear(input_size, hidden_size),
             nn.ReLU(),
             nn.Linear(hidden_size, output_size)
         )
-        self.device = set_device()
+        self.device = set_device(force_gpu)
         self.model.to(self.device)
         
         self.criterion = nn.CrossEntropyLoss()
